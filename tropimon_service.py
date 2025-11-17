@@ -124,6 +124,7 @@ def update_database_from_logs(log_folder: str = LOG_FOLDER):
     old_file = os.path.join(log_folder, "pokemon_logs.json")
     load_old_json_file(old_file, session, player_cache, species_cache)
 
+
     # --- 2) Load NEW folder-based logs ---
     for folder_name in os.listdir(log_folder):
         folder_path = os.path.join(log_folder, folder_name)
