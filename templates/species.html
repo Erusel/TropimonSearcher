@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}{{ species }} – Tropimon Stats{% endblock %}
+
+{% block content %}
+
+<section class="cp-card cp-fadein">
+  <h1 class="cp-title">{{ species }}</h1>
+
+  <div class="cp-stats-grid">
+    <div class="cp-stat-block"><span>Total Captures</span><strong>{{ total }}</strong></div>
+    <div class="cp-stat-block"><span>Total Shiny</span><strong>{{ shiny }}</strong></div>
+  </div>
+</section>
+
+<section class="cp-card cp-fadein">
+  <h2>Top 10 Players</h2>
+  <table class="cp-table">
+    <thead><tr><th>#</th><th>Player</th><th>Count</th></tr></thead>
+    <tbody>
+    {% for row in rows %}
+      <tr><td>{{ loop.index }}</td><td>{{ row.player }}</td><td>{{ row.count }}</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</section>
+
+{% endblock %}

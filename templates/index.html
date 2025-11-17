@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}Dashboard – Tropimon Stats{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="cp-hero cp-fadein">
+  <h1 class="cp-hero-title">Tropimon Statistics</h1>
+  <p class="cp-hero-sub">Anonymous global analytics for your Cobblemon server.</p>
+
+  <form action="/search/species" class="cp-hero-search">
+    <input type="text" name="species" class="cp-input cp-hero-input"
+           placeholder="Search species… (ex: cobblemon:geodude)">
+    <button class="cp-button cp-hero-btn">Search</button>
+  </form>
+</section>
+
+<!-- TOP CARDS -->
+<section class="cp-stats-grid cp-fadein">
+  <div class="cp-stat-block">
+    <span>Total Captures</span>
+    <strong id="stat-total-captures">–</strong>
+  </div>
+  <div class="cp-stat-block">
+    <span>Shiny Captures</span>
+    <strong id="stat-total-shiny">–</strong>
+  </div>
+  <div class="cp-stat-block">
+    <span>Légendaires</span>
+    <strong id="stat-total-legendaries">–</strong>
+  </div>
+  <div class="cp-stat-block">
+    <span>Mythiques</span>
+    <strong id="stat-total-mythicals">–</strong>
+  </div>
+</section>
+
+<!-- DASHBOARD -->
+<section class="cp-dashboard cp-fadein">
+
+  <article class="cp-card cp-hover">
+    <h2>Top Captures (Players)</h2>
+    <canvas id="chart-top-captures"></canvas>
+  </article>
+
+  <article class="cp-card cp-hover">
+    <h2>Top Shiny (Players)</h2>
+    <canvas id="chart-top-shiny"></canvas>
+  </article>
+
+  <article class="cp-card cp-hover">
+    <h2>Top Légendaires (Players)</h2>
+    <canvas id="chart-top-legendaries"></canvas>
+  </article>
+
+  <article class="cp-card cp-hover">
+    <h2>Top Mythiques (Players)</h2>
+    <canvas id="chart-top-mythicals"></canvas>
+  </article>
+
+  <article class="cp-card cp-hover">
+    <h2>Most Captured Species</h2>
+    <canvas id="chart-top-species"></canvas>
+  </article>
+
+  <article class="cp-card cp-hover">
+    <h2>Most Captured Shiny Species</h2>
+    <canvas id="chart-top-shiny-species"></canvas>
+  </article>
+
+</section>
+
+{% endblock %}

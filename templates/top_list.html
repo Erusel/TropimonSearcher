@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}{{ title }} – Tropimon Stats{% endblock %}
+
+{% block content %}
+<section class="cp-card">
+
+  <h1 class="cp-title">{{ title }}</h1>
+
+  <table class="cp-table">
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Player</th>
+        <th>Count</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    {% for row in items %}
+      <tr class="cp-fadein">
+        <td>#{{ loop.index }}</td>
+        <td>{{ row.player }}</td>
+        <td>{{ row.count }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+</section>
+{% endblock %}

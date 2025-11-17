@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Tropimon Stats{% endblock %}</title>
+
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/static/js/ui.js" defer></script>
+</head>
+
+<body>
+
+<header class="cp-header">
+    <div class="cp-header-inner">
+        <a href="/" class="cp-logo">TROPIMON STATS</a>
+    </div>
+</header>
+
+<main class="cp-container">
+    {% block content %}{% endblock %}
+</main>
+
+<footer class="cp-footer">
+    Tropimon Stats • Anonymous & public • Designed for servers<br>
+    Sans oublier Grubert le roi de ton cœur 💖
+</footer>
+
+</body>
+</html>
