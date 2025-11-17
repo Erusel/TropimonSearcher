@@ -2,7 +2,6 @@ import os
 import sys
 import json
 import hashlib
-from typing import List
 
 from fastapi import FastAPI, Query, Request
 from fastapi.responses import HTMLResponse
@@ -23,7 +22,7 @@ from sqlalchemy.orm import declarative_base, sessionmaker, relationship
 
 # ---------- CONFIG ----------
 
-LOG_FOLDER = r"C:\Users\Erusel\Desktop\TropimonLogs\logs"
+LOG_FOLDER = "/app/logs"
 DATABASE_URL = "sqlite:///./tropimon_stats.db"
 
 # Legendary species
