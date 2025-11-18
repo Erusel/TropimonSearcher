@@ -3,25 +3,77 @@
 
 {% block content %}
 
-<section class="cp-card cp-fadein">
-  <h1 class="cp-title">{{ species }}</h1>
+{% set clean_name = species.replace("cobblemon:", "") %}
 
-  <div class="cp-stats-grid">
-    <div class="cp-stat-block"><span>Total Captures</span><strong>{{ total }}</strong></div>
-    <div class="cp-stat-block"><span>Total Shiny</span><strong>{{ shiny }}</strong></div>
+<!-- HERO SECTION WITH IMAGE -->
+<section class="cp-card cp-fadein" style="text-align:center; padding-top:30px;">
+
+  <img src="https://cobblemon.tools/pokedex/pokemon/{{ clean_name }}/sprite.png"
+       alt="{{ clean_name }}"
+       class="pokemon-sprite-hero"
+       onerror="this.src='/static/img/unknown.png';">
+
+  <h1 class="cp-title" style="margin-top:15px;">
+    {{ clean_name|capitalize }}
+  </h1>
+
+  <p class="cp-meta" style="opacity:0.7;">
+    Global anonymous statistics for this species.
+  </p>
+
+  <div class="cp-stats-grid" style="margin-top:25px;">
+    <div class="cp-stat-block">
+      <span>Total Captures</span>
+      <strong>{{ total }}</strong>
+    </div>
+    <div class="cp-stat-block">
+      <span>Total Shiny</span>
+      <strong>{{ shiny }}</strong>
+    </div>
   </div>
 </section>
 
-<section class="cp-card cp-fadein">
-  <h2>Top 10 Players</h2>
-  <table class="cp-table">
-    <thead><tr><th>#</th><th>Player</th><th>Count</th></tr></thead>
+
+<!-- TOP PLAYERS TABLE -->
+<section class="cp-card cp-fadein" style="margin-top:30px;">
+  <h2 style="margin-bottom:15px;">Top 10 Players</h2>
+
+  <table class="cp-table" style="margin-top:10px;">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Player</th>
+        <th>Captures</th>
+      </tr>
+    </thead>
+
     <tbody>
     {% for row in rows %}
-      <tr><td>{{ loop.index }}</td><td>{{ row.player }}</td><td>{{ row.count }}</td></tr>
+      <tr>
+        <td>{{ loop.index }}</td>
+        <td>{{ row.player }}</td>
+        <td>{{ row.count }}</td>
+      </tr>
     {% endfor %}
     </tbody>
   </table>
 </section>
+
+
+<!-- LITTLE CSS BOOST FOR THE IMAGE -->
+<style>
+.pokemon-sprite-hero {
+    width: 140px;
+    height: 140px;
+    image-rendering: pixelated;
+    filter: drop-shadow(0 0 12px rgba(180,220,255,0.55));
+    transition: transform .25s ease, filter .25s ease;
+}
+
+.pokemon-sprite-hero:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 22px rgba(250,180,255,0.85));
+}
+</style>
 
 {% endblock %}
